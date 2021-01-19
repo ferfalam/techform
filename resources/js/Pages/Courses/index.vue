@@ -6,14 +6,15 @@
         <div class="py-3" v-for="course in this.courseList" :key="course.id">
             <div class="p-3 mx-8 bg-white rounded shadow">
                 <div class="text-sm text-gray-300">
-                    {{course.user.name}} épisodes
+                    Mise en ligne par {{course.user.name}} -
+                    <span class="text-gray-500 text-sm"> {{course.participants}} participant<span v-if="parseInt(course.participants) > 0">s</span> </span>
                 </div>
                 <div class="flex justify-between items-center">
                     <div class="text-2xl">
                         {{course.title}}
                     </div>
                     <div class="text-sm text-gray-300">
-                        Mise en ligne par {{course.episodes_count}}
+                        {{course.episodes_count}} épisode<span v-if="parseInt(course.episodes_count) > 0">s</span>
                     </div>
                 </div>
                 <div class=" text-sm text-gray-400">
