@@ -43,7 +43,6 @@ class CourseController extends Controller
         $user = auth()->user();
 
         $user->episodes()->toggle($id);
-
         return $user->episodes;
     }
 

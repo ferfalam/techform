@@ -4227,6 +4227,54 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressBar.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressBar.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['watchedEpisodes', 'episodes'],
+  data: function data() {
+    return {
+      watchedEpisodesData: this.watchedEpisodes
+    };
+  },
+  computed: {
+    percentage: function percentage() {
+      var _this = this;
+
+      var filteredEp = this.episodes.filter(function (courseEp) {
+        return _this.watchedEpisodesData.find(function (watchedEp) {
+          return watchedEp.id === courseEp.id;
+        });
+      });
+      return Math.ceil(filteredEp.length * 100 / this.episodes.length);
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    // console.log(this.percentage())
+    eventBus.$on('toggleProgress', function (data) {
+      return _this2.watchedEpisodesData = data;
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressButton.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressButton.vue?vue&type=script&lang=js& ***!
@@ -4262,7 +4310,9 @@ __webpack_require__.r(__webpack_exports__);
         episodeId: this.episodeId
       }).then(function (response) {
         if (response.status === 200) {
-          _this.isWatched = !_this.isWatched;
+          _this.isWatched = !_this.isWatched; // console.log(response.data)
+
+          eventBus.$emit('toggleProgress', response.data);
         }
       })["catch"](function (response) {
         return console.log(error);
@@ -4272,7 +4322,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       return this.watchedEp.find(function (episode) {
-        episode.id === _this2.episodeId;
+        return episode.id === _this2.episodeId;
       }) ? true : false;
     }
   },
@@ -4354,6 +4404,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _ProgressButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProgressButton */ "./resources/js/Pages/Courses/ProgressButton.vue");
+/* harmony import */ var _ProgressBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgressBar */ "./resources/js/Pages/Courses/ProgressBar.vue");
 //
 //
 //
@@ -4383,12 +4434,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
-    ProgressButton: _ProgressButton__WEBPACK_IMPORTED_MODULE_1__.default
+    ProgressButton: _ProgressButton__WEBPACK_IMPORTED_MODULE_1__.default,
+    ProgressBar: _ProgressBar__WEBPACK_IMPORTED_MODULE_2__.default
   },
   props: ['course', 'watched'],
   data: function data() {
@@ -4402,7 +4459,8 @@ __webpack_require__.r(__webpack_exports__);
       this.currentKey = index;
     }
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {// console.log(this.watched)
+  }
 });
 
 /***/ }),
@@ -5572,6 +5630,7 @@ vue__WEBPACK_IMPORTED_MODULE_2__.default.mixin({
 vue__WEBPACK_IMPORTED_MODULE_2__.default.use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.plugin);
 vue__WEBPACK_IMPORTED_MODULE_2__.default.use(portal_vue__WEBPACK_IMPORTED_MODULE_1__.default);
 var app = document.getElementById('app');
+window.eventBus = new vue__WEBPACK_IMPORTED_MODULE_2__.default();
 new vue__WEBPACK_IMPORTED_MODULE_2__.default({
   render: function render(h) {
     return h(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.App, {
@@ -26475,6 +26534,45 @@ component.options.__file = "resources/js/Pages/Auth/VerifyEmail.vue"
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Courses/ProgressBar.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/Pages/Courses/ProgressBar.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _ProgressBar_vue_vue_type_template_id_3213f516___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProgressBar.vue?vue&type=template&id=3213f516& */ "./resources/js/Pages/Courses/ProgressBar.vue?vue&type=template&id=3213f516&");
+/* harmony import */ var _ProgressBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProgressBar.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Courses/ProgressBar.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _ProgressBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _ProgressBar_vue_vue_type_template_id_3213f516___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ProgressBar_vue_vue_type_template_id_3213f516___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Courses/ProgressBar.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Courses/ProgressButton.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/Pages/Courses/ProgressButton.vue ***!
@@ -27480,6 +27578,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Courses/ProgressBar.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/Pages/Courses/ProgressBar.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProgressBar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressBar.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Courses/ProgressButton.vue?vue&type=script&lang=js&":
 /*!********************************************************************************!*\
   !*** ./resources/js/Pages/Courses/ProgressButton.vue?vue&type=script&lang=js& ***!
@@ -28326,6 +28440,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_template_id_9f895776___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_template_id_9f895776___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerifyEmail.vue?vue&type=template&id=9f895776& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Auth/VerifyEmail.vue?vue&type=template&id=9f895776&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Courses/ProgressBar.vue?vue&type=template&id=3213f516&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/Pages/Courses/ProgressBar.vue?vue&type=template&id=3213f516& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_template_id_3213f516___WEBPACK_IMPORTED_MODULE_0__.render,
+/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_template_id_3213f516___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_template_id_3213f516___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProgressBar.vue?vue&type=template&id=3213f516& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressBar.vue?vue&type=template&id=3213f516&");
 
 
 /***/ }),
@@ -33111,6 +33242,41 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressBar.vue?vue&type=template&id=3213f516&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressBar.vue?vue&type=template&id=3213f516& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render,
+/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "bg-gray-200 w-full rounded" }, [
+    _c(
+      "div",
+      {
+        staticClass:
+          "bg-green-500 text-white rounded-l text-center transition-width duration-500",
+        style: "width:" + _vm.percentage + "%"
+      },
+      [_vm._v(" " + _vm._s(_vm.percentage) + "% ")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressButton.vue?vue&type=template&id=70195cff&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressButton.vue?vue&type=template&id=70195cff& ***!
@@ -33307,6 +33473,20 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
+          { staticClass: "py-6" },
+          [
+            _c("progress-bar", {
+              attrs: {
+                "watched-episodes": _vm.watched,
+                episodes: _vm.course.episodes
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
           { staticClass: "mt-6" },
           _vm._l(_vm.courseShow.episodes, function(episode, index) {
             return _c("ul", { key: episode.id }, [
@@ -33339,8 +33519,8 @@ var render = function() {
                   _vm._v(" "),
                   _c("progress-button", {
                     attrs: {
-                      "episode-id": episode.id,
-                      "watched-episodes": _vm.watched
+                      "watched-episodes": _vm.watched,
+                      "episode-id": episode.id
                     }
                   })
                 ],
@@ -47496,6 +47676,8 @@ var map = {
 	"./Auth/VerifyEmail.vue": "./resources/js/Pages/Auth/VerifyEmail.vue",
 	"./Courses": "./resources/js/Pages/Courses/index.vue",
 	"./Courses/": "./resources/js/Pages/Courses/index.vue",
+	"./Courses/ProgressBar": "./resources/js/Pages/Courses/ProgressBar.vue",
+	"./Courses/ProgressBar.vue": "./resources/js/Pages/Courses/ProgressBar.vue",
 	"./Courses/ProgressButton": "./resources/js/Pages/Courses/ProgressButton.vue",
 	"./Courses/ProgressButton.vue": "./resources/js/Pages/Courses/ProgressButton.vue",
 	"./Courses/index": "./resources/js/Pages/Courses/index.vue",

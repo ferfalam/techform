@@ -12,6 +12,10 @@
                 {{courseShow.episodes[this.currentKey].description}}
             </div>
 
+            <div class="py-6">
+                <progress-bar :watched-episodes = 'watched' :episodes = "course.episodes" ></progress-bar>
+            </div>
+
             <div class="mt-6">
                 <ul v-for="(episode, index) in courseShow.episodes" :key="episode.id">
                     <li class="mt-3 flex justify-between items-center">
@@ -19,7 +23,7 @@
                             Episode n° {{index + 1}} - {{episode.title}}
                             <button class="text-gray-500 focus:text-indigo-500 focus:outline-none" @click="switchEpisode(index)">Voir l'épisode</button>
                         </div>
-                        <progress-button :episode-id= "episode.id" :watched-episodes= "watched"></progress-button>
+                        <progress-button :watched-episodes= "watched" :episode-id= "episode.id" ></progress-button>
                     </li>
                 </ul>
             </div>
@@ -30,11 +34,13 @@
 <script>
 import AppLayout from './../../Layouts/AppLayout';
 import ProgressButton from './ProgressButton';
+import ProgressBar from './ProgressBar';
 
 export default {
     components: {
         AppLayout,
-        ProgressButton
+        ProgressButton,
+        ProgressBar
     },
 
     props: ['course', 'watched'],
@@ -53,7 +59,7 @@ export default {
     },
 
     mounted() {
-
+        // console.log(this.watched)
     },
 
 }

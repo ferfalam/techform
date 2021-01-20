@@ -26,13 +26,15 @@ export default {
             .then(response => {
                 if (response.status === 200) {
                     this.isWatched = !this.isWatched
+                    // console.log(response.data)
+                    eventBus.$emit('toggleProgress', response.data)
                 }
             })
             .catch(response => console.log(error));
         },
 
         isWatchedEpisode(){
-            return this.watchedEp.find((episode) => {episode.id === this.episodeId}) ? true : false
+            return this.watchedEp.find((episode) => { return episode.id === this.episodeId}) ? true : false
         }
     },
 
