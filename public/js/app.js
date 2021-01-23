@@ -4438,6 +4438,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -4496,12 +4498,92 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__.default
+  },
+  props: {
+    errors: Object
+  },
+  data: function data() {
+    return {
+      form: {
+        title: null,
+        description: null,
+        episodes: [{
+          title: null,
+          description: null,
+          video_url: null
+        }]
+      }
+    };
+  },
+  methods: {
+    submit: function submit() {
+      this.$inertia.post('/courses', this.form);
+    },
+    add: function add() {
+      this.form.episodes.push({
+        title: null,
+        description: null,
+        video_url: null
+      });
+    },
+    remove: function remove() {
+      this.form.episodes.pop();
+    }
+  },
+  mounted: function mounted() {//
   }
 });
 
@@ -33463,6 +33545,17 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
+        _c("iframe", {
+          staticClass: "w-full h-screen",
+          attrs: {
+            src: _vm.courseShow.episodes[this.currentKey].video_url,
+            frameborder: "0",
+            allow:
+              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+            allowfullscreen: ""
+          }
+        }),
+        _vm._v(" "),
         _c("div", { staticClass: " text-sm text-gray-400" }, [
           _vm._v(
             "\n            " +
@@ -33583,12 +33676,408 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
         _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
-          _c(
-            "div",
-            { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
-            [_c("welcome")],
-            1
-          )
+          _vm.$page.props.flash.success
+            ? _c("div", { staticClass: "bg-green-200 text-green-500 p-3" }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.$page.props.flash.success) +
+                    "\n            "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-5 md:mt-0 md:col-span-2" }, [
+            _c(
+              "form",
+              {
+                attrs: { action: "#", method: "POST" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.submit($event)
+                  }
+                }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "shadow overflow-hidden sm:rounded-md" },
+                  [
+                    _c("div", { staticClass: "px-4 py-3 bg-white sm:p-6" }, [
+                      _c("div", { staticClass: "mb-4" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "block text-sm font-medium text-gray-700",
+                            attrs: { for: "title" }
+                          },
+                          [_vm._v("Titre de la formation")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.title,
+                              expression: "form.title"
+                            }
+                          ],
+                          staticClass:
+                            "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                          attrs: { type: "text", name: "title", id: "title" },
+                          domProps: { value: _vm.form.title },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "title", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.errors.title
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "bg-red-200 text-red-800 p-3 my-2"
+                              },
+                              [_vm._v(_vm._s(_vm.errors.title))]
+                            )
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mb-4" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "block text-sm font-medium text-gray-700",
+                            attrs: { for: "description" }
+                          },
+                          [_vm._v("Description de la formation")]
+                        ),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.description,
+                              expression: "form.description"
+                            }
+                          ],
+                          staticClass:
+                            "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                          attrs: {
+                            type: "text",
+                            name: "description",
+                            id: "description"
+                          },
+                          domProps: { value: _vm.form.description },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "description",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.errors.description
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "bg-red-200 text-red-800 p-3 my-2"
+                              },
+                              [_vm._v(_vm._s(_vm.errors.description))]
+                            )
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        [
+                          _c("h2", { staticClass: "text-2xl" }, [
+                            _vm._v("Episode de la formation")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.form.episodes, function(episode, index) {
+                            return _c("div", { key: episode.id }, [
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-sm font-medium text-gray-700 mt-2",
+                                  attrs: { for: "title-" + index }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Titre de l'episode n°" +
+                                      _vm._s(index + 1) +
+                                      "\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.episodes[index].title,
+                                    expression: "form.episodes[index].title"
+                                  }
+                                ],
+                                staticClass:
+                                  "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                attrs: {
+                                  type: "text",
+                                  name: "title",
+                                  id: "id-" + index
+                                },
+                                domProps: {
+                                  value: _vm.form.episodes[index].title
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form.episodes[index],
+                                      "title",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm.errors["episodes." + index + ".title"]
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "bg-red-200 text-red-800 p-3 my-2"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.errors[
+                                            "episodes." + index + ".title"
+                                          ]
+                                        )
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-sm font-medium text-gray-700 mt-2",
+                                  attrs: { for: "description-" + index }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Description de l'episode n°" +
+                                      _vm._s(index + 1) +
+                                      "\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.episodes[index].description,
+                                    expression:
+                                      "form.episodes[index].description"
+                                  }
+                                ],
+                                staticClass:
+                                  "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                attrs: {
+                                  type: "text",
+                                  name: "description",
+                                  id: "id-" + index
+                                },
+                                domProps: {
+                                  value: _vm.form.episodes[index].description
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form.episodes[index],
+                                      "description",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm.errors["episodes." + index + ".description"]
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "bg-red-200 text-red-800 p-3 my-2"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.errors[
+                                            "episodes." + index + ".description"
+                                          ]
+                                        )
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-sm font-medium text-gray-700 mt-2",
+                                  attrs: { for: "video_url-" + index }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Url de la vidéo de l'episode n°" +
+                                      _vm._s(index + 1) +
+                                      "\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.episodes[index].video_url,
+                                    expression: "form.episodes[index].video_url"
+                                  }
+                                ],
+                                staticClass:
+                                  "mb-4 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                attrs: {
+                                  type: "text",
+                                  name: "video_url",
+                                  id: "id-" + index
+                                },
+                                domProps: {
+                                  value: _vm.form.episodes[index].video_url
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form.episodes[index],
+                                      "video_url",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm.errors["episodes." + index + ".video_url"]
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "bg-red-200 text-red-800 p-3 my-2"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.errors[
+                                            "episodes." + index + ".video_url"
+                                          ]
+                                        )
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ])
+                          })
+                        ],
+                        2
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "px-4 pb-2 bg-gray-50 sm:px-6" }, [
+                      _c("div", { staticClass: "block" }, [
+                        _vm.form.episodes.length < 15
+                          ? _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "bg-green-600 rounded py-2 px-4 text-white mb-2",
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.add($event)
+                                  }
+                                }
+                              },
+                              [_vm._v("+")]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.form.episodes.length > 1
+                          ? _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "bg-red-600 rounded py-2 px-4 text-white  mb-2",
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.remove($event)
+                                  }
+                                }
+                              },
+                              [_vm._v("🗑️")]
+                            )
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline",
+                          attrs: { type: "submit" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Créer la formation\n                            "
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          ])
         ])
       ])
     ]

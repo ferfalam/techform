@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Episode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class CourseController extends Controller
@@ -19,7 +21,7 @@ class CourseController extends Controller
             WHERE episodes.course_id = courses.id
             ) AS participants'
         ))
-        ->withCount('episodes')->get();
+        ->withCount('episodes')->orderBy('created_at', 'DESC')->get();
 
         return Inertia::render('Courses/index',[
             'courses' => $courses
@@ -44,6 +46,29 @@ class CourseController extends Controller
 
         $user->episodes()->toggle($id);
         return $user->episodes;
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'episodes' => ['required', 'array'],
+            'episodes.*.title' => 'required',
+            'episodes.*.description' => 'required',
+            'episodes.*.video_url' => 'required',
+        ]);
+
+        $course = Course::create($request->all());
+
+        foreach ($request->input('episodes') as $key => $episode) {
+
+            $episode['course_id'] = $course->id;
+            // dd($episode);
+            Episode::create($episode);
+        }
+
+        return Redirect::route('dashboard')->with('success', 'Félicitation, la formation a bien été mise en ligne.');
     }
 
 

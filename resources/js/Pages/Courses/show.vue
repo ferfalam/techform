@@ -8,6 +8,8 @@
                 {{courseShow.episodes[this.currentKey].title}}
             </div>
 
+            <iframe class="w-full h-screen" :src="courseShow.episodes[this.currentKey].video_url" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
             <div class=" text-sm text-gray-400">
                 {{courseShow.episodes[this.currentKey].description}}
             </div>
