@@ -57,6 +57,11 @@ export default {
     methods: {
         switchEpisode(index){
             this.currentKey = index
+            window.scrollTo({
+                top : 0,
+                left : 0,
+                behavior : 'smooth'
+            });
         }
     },
 

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Episode;
+use App\Youtube\YoutubeServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -21,6 +23,11 @@ class CourseController extends Controller
             INNER JOIN episodes ON completions.episode_id = episodes.id
             WHERE episodes.course_id = courses.id
             ) AS participants'
+        ))->addSelect(DB::raw(
+            '(SELECT SUM(duration)
+            FROM episodes
+            WHERE episodes.course_id = courses.id
+            ) AS total_duration'
         ))
         ->withCount('episodes')->orderBy('updated_at', 'DESC')->get();
 
@@ -51,7 +58,7 @@ class CourseController extends Controller
         return $user->episodes;
     }
 
-    public function store(Request $request)
+    public function store(Request $request, YoutubeServices $ytb)
     {
         $request->validate([
             'title' => 'required',
@@ -65,9 +72,8 @@ class CourseController extends Controller
         $course = Course::create($request->all());
 
         foreach ($request->input('episodes') as $key => $episode) {
-
             $episode['course_id'] = $course->id;
-            // dd($episode);
+            $episode['duration'] = $ytb->handleYoutubeVideoDuration($episode['video_url']);
             Episode::create($episode);
         }
 

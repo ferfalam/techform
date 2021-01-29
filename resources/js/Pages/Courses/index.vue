@@ -8,18 +8,17 @@
         </div>
         <div class="py-3" v-for="course in this.courseList" :key="course.id">
             <div class="p-3 mx-8 bg-white rounded shadow">
-                <div class="text-sm text-gray-300">
-                    Mise en ligne par {{course.user.name}} -
-                    <span class="text-gray-500 text-sm"> {{course.participants}} participant<span v-if="parseInt(course.participants) > 0">s</span> </span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <div class="text-2xl">
-                        {{course.title}}
+                <div class="text-sm text-gray-300 flex justify-between items-center">
+                    <div>
+                        Mise en ligne par {{course.user.name}} -
+                        <span class="text-gray-500 text-sm"> {{course.participants}} participant<span v-if="parseInt(course.participants) > 1">s</span> </span>
                     </div>
-                    <div class="text-sm text-gray-300">
-                        {{course.episodes_count}} épisode<span v-if="parseInt(course.episodes_count) > 0">s</span>
-                    </div>
+                    <span class="block text-sm text-gray-400">{{course.episodes_count}} épisode<span v-if="parseInt(course.episodes_count) > 1">s</span></span>
                 </div>
+                <h1 class="text-2xl">
+                    {{course.title}}
+                </h1>
+                <span class="font-semibold text-gray-500">{{convert(course.total_duration)}}</span>
                 <div class=" text-sm text-gray-400">
                     {{course.description}}
                 </div>
@@ -53,8 +52,18 @@ export default {
         }
     },
 
+    methods: {
+        convert(timestamps){
+            let hours = Math.floor(timestamps / 3600)
+            let minutes = Math.floor((timestamps / 60) - (hours / 60))
+            let seconds = timestamps % 60
+
+            return hours.toString().padStart(2, 0) + ':' + minutes.toString().padStart(2, 0) + ':' + seconds.toString().padStart(2, 0)
+        }
+    },
+
     mounted() {
-        //
+        // console.log(this.courseList[0].total_duration)
     },
 
 }

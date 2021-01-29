@@ -4494,7 +4494,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -4506,7 +4505,15 @@ __webpack_require__.r(__webpack_exports__);
       courseList: this.courses
     };
   },
-  mounted: function mounted() {//
+  methods: {
+    convert: function convert(timestamps) {
+      var hours = Math.floor(timestamps / 3600);
+      var minutes = Math.floor(timestamps / 60 - hours / 60);
+      var seconds = timestamps % 60;
+      return hours.toString().padStart(2, 0) + ':' + minutes.toString().padStart(2, 0) + ':' + seconds.toString().padStart(2, 0);
+    }
+  },
+  mounted: function mounted() {// console.log(this.courseList[0].total_duration)
   }
 });
 
@@ -4580,6 +4587,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     switchEpisode: function switchEpisode(index) {
       this.currentKey = index;
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
   },
   mounted: function mounted() {// console.log(this.watched)
@@ -34118,39 +34130,44 @@ var render = function() {
       _vm._l(this.courseList, function(course) {
         return _c("div", { key: course.id, staticClass: "py-3" }, [
           _c("div", { staticClass: "p-3 mx-8 bg-white rounded shadow" }, [
-            _c("div", { staticClass: "text-sm text-gray-300" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-sm text-gray-300 flex justify-between items-center"
+              },
+              [
+                _c("div", [
+                  _vm._v(
+                    "\n                    Mise en ligne par " +
+                      _vm._s(course.user.name) +
+                      " -\n                    "
+                  ),
+                  _c("span", { staticClass: "text-gray-500 text-sm" }, [
+                    _vm._v(" " + _vm._s(course.participants) + " participant"),
+                    parseInt(course.participants) > 1
+                      ? _c("span", [_vm._v("s")])
+                      : _vm._e()
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "block text-sm text-gray-400" }, [
+                  _vm._v(_vm._s(course.episodes_count) + " épisode"),
+                  parseInt(course.episodes_count) > 1
+                    ? _c("span", [_vm._v("s")])
+                    : _vm._e()
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("h1", { staticClass: "text-2xl" }, [
               _vm._v(
-                "\n                Mise en ligne par " +
-                  _vm._s(course.user.name) +
-                  " -\n                "
-              ),
-              _c("span", { staticClass: "text-gray-500 text-sm" }, [
-                _vm._v(" " + _vm._s(course.participants) + " participant"),
-                parseInt(course.participants) > 0
-                  ? _c("span", [_vm._v("s")])
-                  : _vm._e()
-              ])
+                "\n                " + _vm._s(course.title) + "\n            "
+              )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "flex justify-between items-center" }, [
-              _c("div", { staticClass: "text-2xl" }, [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(course.title) +
-                    "\n                "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-sm text-gray-300" }, [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(course.episodes_count) +
-                    " épisode"
-                ),
-                parseInt(course.episodes_count) > 0
-                  ? _c("span", [_vm._v("s")])
-                  : _vm._e()
-              ])
+            _c("span", { staticClass: "font-semibold text-gray-500" }, [
+              _vm._v(_vm._s(_vm.convert(course.total_duration)))
             ]),
             _vm._v(" "),
             _c("div", { staticClass: " text-sm text-gray-400" }, [
