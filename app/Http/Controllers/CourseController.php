@@ -29,7 +29,7 @@ class CourseController extends Controller
             WHERE episodes.course_id = courses.id
             ) AS total_duration'
         ))
-        ->withCount('episodes')->orderBy('updated_at', 'DESC')->get();
+        ->withCount('episodes')->orderBy('updated_at', 'DESC')->paginate(5);
 
         // dd($courses);
 

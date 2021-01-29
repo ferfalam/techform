@@ -4494,6 +4494,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -4513,7 +4518,10 @@ __webpack_require__.r(__webpack_exports__);
       return hours.toString().padStart(2, 0) + ':' + minutes.toString().padStart(2, 0) + ':' + seconds.toString().padStart(2, 0);
     }
   },
-  mounted: function mounted() {// console.log(this.courseList[0].total_duration)
+  mounted: function mounted() {
+    var last = this.courseList.links.length;
+    this.courseList.links[0].label = "Précédent";
+    this.courseList.links[last - 1].label = "Suivant";
   }
 });
 
@@ -34115,105 +34123,144 @@ var render = function() {
     },
     [
       _vm._v(" "),
-      _vm.$page.props.flash.success
-        ? _c(
-            "div",
-            { staticClass: " my-3 mx-8 bg-green-200 text-green-500 p-3" },
-            [
-              _vm._v(
-                "\n        " + _vm._s(_vm.$page.props.flash.success) + "\n    "
-              )
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(this.courseList, function(course) {
-        return _c("div", { key: course.id, staticClass: "py-3" }, [
-          _c("div", { staticClass: "p-3 mx-8 bg-white rounded shadow" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "text-sm text-gray-300 flex justify-between items-center"
-              },
-              [
-                _c("div", [
-                  _vm._v(
-                    "\n                    Mise en ligne par " +
-                      _vm._s(course.user.name) +
-                      " -\n                    "
-                  ),
-                  _c("span", { staticClass: "text-gray-500 text-sm" }, [
-                    _vm._v(" " + _vm._s(course.participants) + " participant"),
-                    parseInt(course.participants) > 1
-                      ? _c("span", [_vm._v("s")])
-                      : _vm._e()
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "block text-sm text-gray-400" }, [
-                  _vm._v(_vm._s(course.episodes_count) + " épisode"),
-                  parseInt(course.episodes_count) > 1
-                    ? _c("span", [_vm._v("s")])
-                    : _vm._e()
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("h1", { staticClass: "text-2xl" }, [
-              _vm._v(
-                "\n                " + _vm._s(course.title) + "\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "font-semibold text-gray-500" }, [
-              _vm._v(_vm._s(_vm.convert(course.total_duration)))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: " text-sm text-gray-400" }, [
-              _vm._v(
-                "\n                " +
-                  _vm._s(course.description) +
-                  "\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex items-center justify-between" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "bg-indigo-500 text-white py-1 px-2 text-sm mt-3 inline-block rounded hover:bg-indigo-700",
-                  attrs: { href: "courses/" + course.id }
-                },
+      _c(
+        "section",
+        { staticClass: "py-6" },
+        [
+          _vm.$page.props.flash.success
+            ? _c(
+                "div",
+                { staticClass: " my-3 mx-8 bg-green-200 text-green-500 p-3" },
                 [
                   _vm._v(
-                    "\n                    Voir la formation\n                "
+                    "\n            " +
+                      _vm._s(_vm.$page.props.flash.success) +
+                      "\n        "
                   )
                 ]
-              ),
-              _vm._v(" "),
-              course.update
-                ? _c(
-                    "a",
-                    {
-                      staticClass:
-                        "bg-gray-500 text-white py-1 px-2 text-sm mt-3 inline-block rounded hover:bg-gray-700",
-                      attrs: { href: "course/edit/" + course.id }
-                    },
-                    [
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(this.courseList.data, function(course) {
+            return _c("div", { key: course.id, staticClass: "py-3" }, [
+              _c("div", { staticClass: "p-3 mx-8 bg-white rounded shadow" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "text-sm text-gray-300 flex justify-between items-center"
+                  },
+                  [
+                    _c("div", [
                       _vm._v(
-                        "\n                    Editer la formation\n                "
-                      )
-                    ]
+                        "\n                        Mise en ligne par " +
+                          _vm._s(course.user.name) +
+                          " -\n                        "
+                      ),
+                      _c("span", { staticClass: "text-gray-500 text-sm" }, [
+                        _vm._v(
+                          " " + _vm._s(course.participants) + " participant"
+                        ),
+                        parseInt(course.participants) > 1
+                          ? _c("span", [_vm._v("s")])
+                          : _vm._e()
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "block text-sm text-gray-400" }, [
+                      _vm._v(_vm._s(course.episodes_count) + " épisode"),
+                      parseInt(course.episodes_count) > 1
+                        ? _c("span", [_vm._v("s")])
+                        : _vm._e()
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("h1", { staticClass: "text-2xl" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(course.title) +
+                      "\n                "
                   )
-                : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "inline-block font-semibold text-sm text-gray-700 bg-gray-200 px-3 py-1 rounded-full"
+                  },
+                  [_vm._v(_vm._s(_vm.convert(course.total_duration)))]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: " text-sm text-gray-400" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(course.description) +
+                      "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "flex items-center justify-between" },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "bg-indigo-500 text-white py-1 px-2 text-sm mt-3 inline-block rounded hover:bg-indigo-700",
+                        attrs: { href: "courses/" + course.id }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Voir la formation\n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    course.update
+                      ? _c(
+                          "a",
+                          {
+                            staticClass:
+                              "bg-gray-500 text-white py-1 px-2 text-sm mt-3 inline-block rounded hover:bg-gray-700",
+                            attrs: { href: "course/edit/" + course.id }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Editer la formation\n                    "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ]
+                )
+              ])
             ])
-          ])
-        ])
-      })
-    ],
-    2
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.courseList.links, function(link) {
+            return _c(
+              "inertia-link",
+              {
+                key: link.label,
+                staticClass: "text-indigo-700 border-gray-500 p-5",
+                attrs: { href: link.url }
+              },
+              [
+                link.url
+                  ? _c("span", { class: { "text-red-700": link.active } }, [
+                      _vm._v(" " + _vm._s(link.label) + " ")
+                    ])
+                  : _vm._e()
+              ]
+            )
+          })
+        ],
+        2
+      )
+    ]
   )
 }
 var staticRenderFns = []
