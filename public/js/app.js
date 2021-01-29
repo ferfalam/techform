@@ -4227,6 +4227,118 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/Edit.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/Edit.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/Welcome */ "./resources/js/Jetstream/Welcome.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
+    Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__.default
+  },
+  props: ['course', 'errors'],
+  data: function data() {
+    return {
+      courseData: this.course
+    };
+  },
+  methods: {
+    submit: function submit() {
+      this.$inertia.patch('/course/' + this.courseData.id, this.courseData);
+    },
+    add: function add() {
+      this.courseData.episodes.push({
+        title: null,
+        description: null,
+        video_url: null
+      });
+    },
+    remove: function remove() {
+      this.courseData.episodes.pop();
+    }
+  },
+  mounted: function mounted() {//
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressBar.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressBar.vue?vue&type=script&lang=js& ***!
@@ -4375,6 +4487,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -4386,7 +4506,8 @@ __webpack_require__.r(__webpack_exports__);
       courseList: this.courses
     };
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {//
+  }
 });
 
 /***/ }),
@@ -26616,6 +26737,45 @@ component.options.__file = "resources/js/Pages/Auth/VerifyEmail.vue"
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Courses/Edit.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/Pages/Courses/Edit.vue ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _Edit_vue_vue_type_template_id_364cffca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit.vue?vue&type=template&id=364cffca& */ "./resources/js/Pages/Courses/Edit.vue?vue&type=template&id=364cffca&");
+/* harmony import */ var _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Courses/Edit.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _Edit_vue_vue_type_template_id_364cffca___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Edit_vue_vue_type_template_id_364cffca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Courses/Edit.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Courses/ProgressBar.vue":
 /*!****************************************************!*\
   !*** ./resources/js/Pages/Courses/ProgressBar.vue ***!
@@ -27660,6 +27820,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Courses/Edit.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/Courses/Edit.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/Edit.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Courses/ProgressBar.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************!*\
   !*** ./resources/js/Pages/Courses/ProgressBar.vue?vue&type=script&lang=js& ***!
@@ -28522,6 +28698,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_template_id_9f895776___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_template_id_9f895776___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerifyEmail.vue?vue&type=template&id=9f895776& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Auth/VerifyEmail.vue?vue&type=template&id=9f895776&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Courses/Edit.vue?vue&type=template&id=364cffca&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/Pages/Courses/Edit.vue?vue&type=template&id=364cffca& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_364cffca___WEBPACK_IMPORTED_MODULE_0__.render,
+/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_364cffca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_364cffca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Edit.vue?vue&type=template&id=364cffca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/Edit.vue?vue&type=template&id=364cffca&");
 
 
 /***/ }),
@@ -33324,6 +33517,482 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/Edit.vue?vue&type=template&id=364cffca&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/Edit.vue?vue&type=template&id=364cffca& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render,
+/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "app-layout",
+    {
+      scopedSlots: _vm._u([
+        {
+          key: "header",
+          fn: function() {
+            return [
+              _c(
+                "h2",
+                {
+                  staticClass:
+                    "font-semibold text-xl text-gray-800 leading-tight"
+                },
+                [
+                  _vm._v(
+                    "\n            Modification de " +
+                      _vm._s(_vm.courseData.title) +
+                      "\n        "
+                  )
+                ]
+              )
+            ]
+          },
+          proxy: true
+        }
+      ])
+    },
+    [
+      _vm._v(" "),
+      _c("div", { staticClass: "py-12" }, [
+        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
+          _vm.$page.props.flash.success
+            ? _c("div", { staticClass: "bg-green-200 text-green-500 p-3" }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.$page.props.flash.success) +
+                    "\n            "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-5 md:mt-0 md:col-span-2" }, [
+            _c(
+              "form",
+              {
+                attrs: { action: "#", method: "POST" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.submit($event)
+                  }
+                }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "shadow overflow-hidden sm:rounded-md" },
+                  [
+                    _c("div", { staticClass: "px-4 py-3 bg-white sm:p-6" }, [
+                      _c("div", { staticClass: "mb-4" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "block text-sm font-medium text-gray-700",
+                            attrs: { for: "title" }
+                          },
+                          [_vm._v("Titre de la formation")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.courseData.title,
+                              expression: "courseData.title"
+                            }
+                          ],
+                          staticClass:
+                            "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                          attrs: { type: "text", name: "title", id: "title" },
+                          domProps: { value: _vm.courseData.title },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.courseData,
+                                "title",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.errors.title
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "bg-red-200 text-red-800 p-3 my-2"
+                              },
+                              [_vm._v(_vm._s(_vm.errors.title))]
+                            )
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mb-4" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "block text-sm font-medium text-gray-700",
+                            attrs: { for: "description" }
+                          },
+                          [_vm._v("Description de la formation")]
+                        ),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.courseData.description,
+                              expression: "courseData.description"
+                            }
+                          ],
+                          staticClass:
+                            "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                          attrs: {
+                            type: "text",
+                            name: "description",
+                            id: "description"
+                          },
+                          domProps: { value: _vm.courseData.description },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.courseData,
+                                "description",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.errors.description
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "bg-red-200 text-red-800 p-3 my-2"
+                              },
+                              [_vm._v(_vm._s(_vm.errors.description))]
+                            )
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        [
+                          _c("h2", { staticClass: "text-2xl" }, [
+                            _vm._v("Episode de la formation")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.courseData.episodes, function(
+                            episode,
+                            index
+                          ) {
+                            return _c("div", { key: episode.id }, [
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-sm font-medium text-gray-700 mt-2",
+                                  attrs: { for: "title-" + index }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Titre de l'episode n°" +
+                                      _vm._s(index + 1) +
+                                      "\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.courseData.episodes[index].title,
+                                    expression:
+                                      "courseData.episodes[index].title"
+                                  }
+                                ],
+                                staticClass:
+                                  "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                attrs: {
+                                  type: "text",
+                                  name: "title",
+                                  id: "id-" + index
+                                },
+                                domProps: {
+                                  value: _vm.courseData.episodes[index].title
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.courseData.episodes[index],
+                                      "title",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm.errors["episodes." + index + ".title"]
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "bg-red-200 text-red-800 p-3 my-2"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.errors[
+                                            "episodes." + index + ".title"
+                                          ]
+                                        )
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-sm font-medium text-gray-700 mt-2",
+                                  attrs: { for: "description-" + index }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Description de l'episode n°" +
+                                      _vm._s(index + 1) +
+                                      "\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value:
+                                      _vm.courseData.episodes[index]
+                                        .description,
+                                    expression:
+                                      "courseData.episodes[index].description"
+                                  }
+                                ],
+                                staticClass:
+                                  "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                attrs: {
+                                  type: "text",
+                                  name: "description",
+                                  id: "id-" + index
+                                },
+                                domProps: {
+                                  value:
+                                    _vm.courseData.episodes[index].description
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.courseData.episodes[index],
+                                      "description",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm.errors["episodes." + index + ".description"]
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "bg-red-200 text-red-800 p-3 my-2"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.errors[
+                                            "episodes." + index + ".description"
+                                          ]
+                                        )
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-sm font-medium text-gray-700 mt-2",
+                                  attrs: { for: "video_url-" + index }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Url de la vidéo de l'episode n°" +
+                                      _vm._s(index + 1) +
+                                      "\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value:
+                                      _vm.courseData.episodes[index].video_url,
+                                    expression:
+                                      "courseData.episodes[index].video_url"
+                                  }
+                                ],
+                                staticClass:
+                                  "mb-4 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                attrs: {
+                                  type: "text",
+                                  name: "video_url",
+                                  id: "id-" + index
+                                },
+                                domProps: {
+                                  value:
+                                    _vm.courseData.episodes[index].video_url
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.courseData.episodes[index],
+                                      "video_url",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm.errors["episodes." + index + ".video_url"]
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "bg-red-200 text-red-800 p-3 my-2"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.errors[
+                                            "episodes." + index + ".video_url"
+                                          ]
+                                        )
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ])
+                          })
+                        ],
+                        2
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "px-4 pb-2 bg-gray-50 sm:px-6" }, [
+                      _c("div", { staticClass: "block" }, [
+                        _vm.courseData.episodes.length < 15
+                          ? _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "bg-green-600 rounded py-2 px-4 text-white mb-2",
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.add($event)
+                                  }
+                                }
+                              },
+                              [_vm._v("+")]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.courseData.episodes.length > 1
+                          ? _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "bg-red-600 rounded py-2 px-4 text-white  mb-2",
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.remove($event)
+                                  }
+                                }
+                              },
+                              [_vm._v("🗑️")]
+                            )
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline",
+                          attrs: { type: "submit" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Modifier ma formation\n                            "
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          ])
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressBar.vue?vue&type=template&id=3213f516&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Courses/ProgressBar.vue?vue&type=template&id=3213f516& ***!
@@ -33434,6 +34103,18 @@ var render = function() {
     },
     [
       _vm._v(" "),
+      _vm.$page.props.flash.success
+        ? _c(
+            "div",
+            { staticClass: " my-3 mx-8 bg-green-200 text-green-500 p-3" },
+            [
+              _vm._v(
+                "\n        " + _vm._s(_vm.$page.props.flash.success) + "\n    "
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _vm._l(this.courseList, function(course) {
         return _c("div", { key: course.id, staticClass: "py-3" }, [
           _c("div", { staticClass: "p-3 mx-8 bg-white rounded shadow" }, [
@@ -33480,15 +34161,37 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass:
-                  "bg-indigo-500 text-white py-1 px-2 text-sm mt-3 inline-block rounded hover:bg-indigo-700",
-                attrs: { href: "courses/" + course.id }
-              },
-              [_vm._v("\n                Voir la formation\n            ")]
-            )
+            _c("div", { staticClass: "flex items-center justify-between" }, [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "bg-indigo-500 text-white py-1 px-2 text-sm mt-3 inline-block rounded hover:bg-indigo-700",
+                  attrs: { href: "courses/" + course.id }
+                },
+                [
+                  _vm._v(
+                    "\n                    Voir la formation\n                "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              course.update
+                ? _c(
+                    "a",
+                    {
+                      staticClass:
+                        "bg-gray-500 text-white py-1 px-2 text-sm mt-3 inline-block rounded hover:bg-gray-700",
+                      attrs: { href: "course/edit/" + course.id }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Editer la formation\n                "
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ])
           ])
         ])
       })
@@ -48165,6 +48868,8 @@ var map = {
 	"./Auth/VerifyEmail.vue": "./resources/js/Pages/Auth/VerifyEmail.vue",
 	"./Courses": "./resources/js/Pages/Courses/index.vue",
 	"./Courses/": "./resources/js/Pages/Courses/index.vue",
+	"./Courses/Edit": "./resources/js/Pages/Courses/Edit.vue",
+	"./Courses/Edit.vue": "./resources/js/Pages/Courses/Edit.vue",
 	"./Courses/ProgressBar": "./resources/js/Pages/Courses/ProgressBar.vue",
 	"./Courses/ProgressBar.vue": "./resources/js/Pages/Courses/ProgressBar.vue",
 	"./Courses/ProgressButton": "./resources/js/Pages/Courses/ProgressButton.vue",

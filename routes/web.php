@@ -32,6 +32,8 @@ Route::group(['auth:sanctum', 'verified'], function () {
     Route::post('/toggleProgress', [CourseController::class, 'toggleProgress'])->name('courses.toggle');
 
     Route::post('/courses',[CourseController::class, 'store']);
+    Route::get('/course/edit/{id}',[CourseController::class, 'edit']);
+    Route::patch('/course/{id}',[CourseController::class, 'update']);
 
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');

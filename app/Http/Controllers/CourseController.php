@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\Episode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -21,7 +22,9 @@ class CourseController extends Controller
             WHERE episodes.course_id = courses.id
             ) AS participants'
         ))
-        ->withCount('episodes')->orderBy('created_at', 'DESC')->get();
+        ->withCount('episodes')->orderBy('updated_at', 'DESC')->get();
+
+        // dd($courses);
 
         return Inertia::render('Courses/index',[
             'courses' => $courses
@@ -69,6 +72,31 @@ class CourseController extends Controller
         }
 
         return Redirect::route('dashboard')->with('success', 'Félicitation, la formation a bien été mise en ligne.');
+    }
+
+    public function edit(int $id)
+    {
+        $course = Course::where('id', $id)->with('episodes')->first();
+        $this->authorize('update', $course);
+
+        return Inertia::render('Courses/Edit', [
+            'course' => $course,
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        $course = Course::where('id', $request->id)->with('episodes')->first();
+        $this->authorize('update', $course);
+        $course->update($request->all());
+        $course->episodes()->delete();
+
+        foreach ($request->episodes as $episode) {
+            $episode['course_id'] = $course->id;
+            Episode::create($episode);
+        }
+
+        return Redirect::route('courses.index')->with('success', 'Félicitation, votre formation a bien été modifié.');
     }
 
 
