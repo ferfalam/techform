@@ -16,12 +16,12 @@ class Course extends Model
 
     protected $appends = ['update'];
 
-    protected static function booted()
-    {
-        static::creating(function ($course) {
-            $course->user_id = auth()->id();
-        });
-    }
+    // protected static function booted()
+    // {
+    //     static::creating(function ($course) {
+    //         $course->user_id = auth()->id();
+    //     });
+    // }
 
     public function getUpdateAttribute()
     {
