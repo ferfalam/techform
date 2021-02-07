@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 class CourseController extends Controller
@@ -34,7 +35,9 @@ class CourseController extends Controller
         // dd($courses);
 
         return Inertia::render('Courses/index',[
-            'courses' => $courses
+            'courses' => $courses,
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
         ]);
     }
 

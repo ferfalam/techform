@@ -16,18 +16,18 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
+Route::get('/', [CourseController::class, 'index'] )->name('courses.index');
 Route::get('/courses', [CourseController::class, 'index'] )->name('courses.index');
-
-Route::group(['auth:sanctum', 'verified'], function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/courses/{id}', [CourseController::class, 'show'])->name('courses.show');
     Route::post('/toggleProgress', [CourseController::class, 'toggleProgress'])->name('courses.toggle');
 

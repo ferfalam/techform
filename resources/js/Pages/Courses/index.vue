@@ -1,7 +1,9 @@
 <template>
-    <app-layout>
+    <app-layout :canLogin='canLogin' :canRegister='canRegister'>
         <template #header>
-            Liste des formations
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight ">
+                Liste des formations
+            </h2>
         </template>
         <section class="py-6">
             <div class=" my-3 mx-8 bg-green-200 text-green-500 p-3" v-if="$page.props.flash.success">
@@ -49,7 +51,11 @@ export default {
         AppLayout,
     },
 
-    props: ['courses'],
+    props: {
+            canLogin: Boolean,
+            canRegister: Boolean,
+            courses: Object
+    },
 
     data() {
         return {

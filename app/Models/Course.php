@@ -25,7 +25,7 @@ class Course extends Model
 
     public function getUpdateAttribute()
     {
-        if($this->user_id === auth()->user()->id){
+        if( auth()->user() && $this->user_id === auth()->user()->id){
             return true;
         }else{
             return false;
